@@ -1,0 +1,26 @@
+{
+	"person": {
+		"name": "Alice Johnson",
+		"age": 34,
+		"hobbies": ["painting", "cycling", "gardening"],
+		"favoriteFood": "sushi",
+		"pets": [
+			{
+				"name": "Max",
+				"type": "dog",
+				"age": 5,
+				"breed": "Golden Retriever",
+				"favoriteToy": "tennis ball",
+				"skills": ["fetch", "roll over", "high five"]
+			},
+			{
+				"name": "Luna",
+				"type": "cat",
+				"age": 3,
+				"breed": "Siamese",
+				"personality": "curious",
+				"favoriteSpot": "window sill"
+			}
+		]
+	}
+}

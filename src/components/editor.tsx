@@ -8,9 +8,10 @@ import { useIsValid } from '../hooks/use-is-valid';
 import type { Format } from '@/types/format';
 import { useEditorTheme } from '@/hooks/use-editor-theme';
 import { ThemeToggle } from './theme-toggle';
+import sampleJson from './editor.sample.json';
 
 export const Editor = () => {
-	const [value, setValue] = useState('');
+	const [value, setValue] = useState(JSON.stringify(sampleJson, null, 2));
 	const [format, setFormat] = useState<Format>('json');
 	const previousFormat = usePreviousValue(format);
 	const isValid = useIsValid(value, format);
