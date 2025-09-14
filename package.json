@@ -10,7 +10,9 @@
 		"format": "biome format . --write",
 		"format:check": "biome format",
 		"lint": "biome lint . --write --unsafe",
-		"lint:check": "biome lint"
+		"lint:check": "biome lint",
+		"types:check": "tsc --noEmit"
+
 	},
 	"dependencies": {
 		"@monaco-editor/react": "^4.7.0",
