@@ -8,13 +8,13 @@ import {
 	SelectValue
 } from '@/components/ui/select';
 
-type FileTypeSelectorProps = {
+type FormatSelectorProps = {
 	value: Format;
 	onChange: (type: Format) => void;
 	disabled?: boolean;
 };
 
-export const FileTypeSelector: FC<FileTypeSelectorProps> = ({
+export const FormatSelector: FC<FormatSelectorProps> = ({
 	value,
 	onChange,
 	disabled = false

@@ -1,4 +1,4 @@
-import { FileTypeSelector } from './FileTypeSelector';
+import { FormatSelector } from './FormateSelector';
 import MonacoEditor from '@monaco-editor/react';
 import { convert } from '@/lib/convert';
 import { usePreviousValue } from './hooks/usePreviousValue';
@@ -12,7 +12,8 @@ export const Editor = () => {
 	const [format, setFormat] = useState<Format>('json');
 	const previousFormat = usePreviousValue(format);
 	const isValid = useIsValid(value, format);
-	const canConvert = isValid && previousFormat !== format;
+	const canConvert = !!value && isValid && previousFormat !== format;
+	const formatIsDisabled = !!value && !isValid;
 
 	const handleChange = (input: string | undefined) => {
 		const value = input ?? '';
@@ -31,10 +32,10 @@ export const Editor = () => {
 	return (
 		<div className='flex h-full w-full max-w-5xl flex-col gap-2'>
 			<div className='flex w-full items-center justify-center gap-2'>
-				<FileTypeSelector
+				<FormatSelector
 					value={format}
 					onChange={setFormat}
-					disabled={!isValid}
+					disabled={formatIsDisabled}
 				/>
 				<CopyButton text={value} />
 			</div>

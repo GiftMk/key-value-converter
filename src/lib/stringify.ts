@@ -1,5 +1,8 @@
 import type { Format } from '@/types/Format';
 import YAML from 'yaml';
+import { XMLBuilder } from 'fast-xml-parser';
+
+const xmlBuilder = new XMLBuilder({ format: true });
 
 export const stringify = (value: unknown, type: Format) => {
 	switch (type) {
@@ -8,6 +11,9 @@ export const stringify = (value: unknown, type: Format) => {
 		}
 		case 'yaml': {
 			return YAML.stringify(value);
+		}
+		case 'xml': {
+			return xmlBuilder.build(value);
 		}
 	}
 };
