@@ -1,4 +1,4 @@
-import type { Format } from '@/types/Format';
+import type { Format } from '@/types/format';
 import YAML from 'yaml';
 import { XMLParser } from 'fast-xml-parser';
 

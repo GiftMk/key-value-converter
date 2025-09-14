@@ -1,4 +1,4 @@
-import { formats, type Format } from '@/types/Format';
+import { formats, type Format } from '@/types/format';
 import type { FC } from 'react';
 import {
 	Select,

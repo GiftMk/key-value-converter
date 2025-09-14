@@ -1,17 +1,21 @@
-import { FormatSelector } from './FormateSelector';
+import { FormatSelector } from './format-selector';
 import MonacoEditor from '@monaco-editor/react';
 import { convert } from '@/lib/convert';
-import { usePreviousValue } from './hooks/usePreviousValue';
-import { CopyButton } from './CopyButton';
+import { usePreviousValue } from '../hooks/use-previous-value';
+import { CopyButton } from './copy-button';
 import { useEffect, useState } from 'react';
-import { useIsValid } from './hooks/useIsValid';
-import type { Format } from '@/types/Format';
+import { useIsValid } from '../hooks/use-is-valid';
+import type { Format } from '@/types/format';
+import { useEditorTheme } from '@/hooks/use-editor-theme';
+import { ThemeToggle } from './theme-toggle';
 
 export const Editor = () => {
 	const [value, setValue] = useState('');
 	const [format, setFormat] = useState<Format>('json');
 	const previousFormat = usePreviousValue(format);
 	const isValid = useIsValid(value, format);
+	const editorTheme = useEditorTheme();
+
 	const canConvert = !!value && isValid && previousFormat !== format;
 	const formatIsDisabled = !!value && !isValid;
 
@@ -38,8 +42,11 @@ export const Editor = () => {
 					disabled={formatIsDisabled}
 				/>
 				<CopyButton text={value} />
+				<ThemeToggle />
 			</div>
 			<MonacoEditor
+				className='overflow-hidden rounded-md'
+				theme={editorTheme}
 				language={format}
 				value={value}
 				onChange={handleChange}

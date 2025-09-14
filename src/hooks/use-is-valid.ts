@@ -1,5 +1,5 @@
-import type { Format } from '@/types/Format';
-import { useDebounce } from './useDebounce';
+import type { Format } from '@/types/format';
+import { useDebounce } from './use-debounce';
 import { useEffect, useState } from 'react';
 import { parse } from '@/lib/parse';
 

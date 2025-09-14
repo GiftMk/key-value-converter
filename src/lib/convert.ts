@@ -1,4 +1,4 @@
-import type { Format } from '@/types/Format';
+import type { Format } from '@/types/format';
 import { stringify } from './stringify';
 import { parse } from './parse';
 
