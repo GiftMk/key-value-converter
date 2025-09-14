@@ -1,10 +1,9 @@
-import { Button } from '@/components/ui/button';
+import { Editor } from './components/Editor';
 
 export const App = () => {
 	return (
-		<>
-			<h1>Phocas x Compsoc</h1>
-			<Button>Click Me</Button>
-		</>
+		<main className='flex flex h-full w-full justify-center gap-8 p-8'>
+			<Editor />
+		</main>
 	);
 };
