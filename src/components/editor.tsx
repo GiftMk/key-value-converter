@@ -16,13 +16,11 @@ export const Editor = () => {
 	const previousFormat = usePreviousValue(format);
 	const isValid = useIsValid(value, format);
 	const editorTheme = useEditorTheme();
-
 	const canConvert = !!value && isValid && previousFormat !== format;
-	const formatIsDisabled = !!value && !isValid;
+	const disableFormatSelector = !!value && !isValid;
 
-	const handleChange = (input: string | undefined) => {
-		const value = input ?? '';
-		setValue(value);
+	const handleChange = (value: string | undefined) => {
+		setValue(value ?? '');
 	};
 
 	useEffect(() => {
@@ -40,9 +38,9 @@ export const Editor = () => {
 				<FormatSelector
 					value={format}
 					onChange={setFormat}
-					disabled={formatIsDisabled}
+					disabled={disableFormatSelector}
 				/>
-				<CopyButton text={value} />
+				<CopyButton value={value} />
 				<ThemeToggle />
 			</div>
 			<MonacoEditor

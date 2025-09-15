@@ -3,17 +3,17 @@ import { Button } from './ui/button';
 import { useState, type FC } from 'react';
 
 type CopyButtonProps = {
-	text: string;
+	value: string;
 };
 
 const ANIMATION_DURATION = 1000;
 
-export const CopyButton: FC<CopyButtonProps> = ({ text }) => {
+export const CopyButton: FC<CopyButtonProps> = ({ value }) => {
 	const [isCopied, setIsCopied] = useState(false);
-	const isDisabled = isCopied || !text;
+	const isDisabled = isCopied || !value;
 
 	const handleCopy = () => {
-		navigator.clipboard.writeText(text);
+		navigator.clipboard.writeText(value);
 		setIsCopied(true);
 		setTimeout(() => setIsCopied(false), ANIMATION_DURATION);
 	};
