@@ -1,4 +1,4 @@
-# Key-Value Converter
+# 🗝️ Key-Value Converter
 
 A web application for converting between different data formats (JSON, YAML, XML) built with React, TypeScript, and Vite. This project serves as a practical example for learning CI/CD pipelines and containerization in the context of modern web development.
 
